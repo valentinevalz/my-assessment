@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  sampleserver:
+    container_name: altschool_data 
+    build: .
+    ports:
+      - "3000:3000"  # host_port: container_port
+    command: "node main.js"
+    environment:
+      - NODE_ENV=production
+
+networks:
+  default:
+    external:
+      name: mynetwork
+  teachyjaunt:
+    external:
+      name: altschool
+
+volumes:
+  upgrade_it_all_together:
+    external: true
